@@ -20,6 +20,7 @@ function SimpleCode() {
 
 	this.lines = [];
 	this.commands = [];
+	this.length = 0;
 	var _self = this;
 
 	this.parse = function(content) {
@@ -36,6 +37,7 @@ function SimpleCode() {
 			var cmd = new SimpleCodeCommand(cmdType,params);
 			_self.commands.push(cmd);
 		}
+		_self.length = _self.lines.length;
 	};
 }
 function SimpleCodeCommand(command,params) {

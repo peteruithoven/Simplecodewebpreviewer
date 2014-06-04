@@ -7,6 +7,8 @@ function Preview() {
 	var _element;
 	var _svg;
 	var _simpleCode;
+	var _currentStep = 0;
+	var _steps = [];
 	var _self = this;
 
 	this.init = function(element) {
@@ -21,6 +23,19 @@ function Preview() {
 		_simpleCode = simpleCode;
 		draw();
 	};
+	this.setStep = function(step) {
+		if(step > _simpleCode.length-1) step = _simpleCode.length-1;
+		if(step < 0) step = 0;
+		if(step === _currentStep) return;
+		_currentStep = step;
+		
+		for(var i=0;i<_steps.length;i++) {
+			var step = _steps[i];
+			if(step === undefined) continue;
+			step.attr('opacity',((i > _currentStep)? 0.1 : 1));
+		}
+	}
+	
 	function draw() {
 		var commands = _simpleCode.commands;
 		var px = 0;
@@ -37,11 +52,12 @@ function Preview() {
 
 					var lineClass = (cmd.command == SimpleCode.COMMAND.MOVE)? "move" : "cut";
 					step = _svg.line(px,py,x,y).attr('class', lineClass);
-
+					
 					px = x;
 					py = y;
 					break;
 			}
+			_steps[i] = step;
 		}
 	}
 }
