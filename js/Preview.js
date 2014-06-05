@@ -21,6 +21,8 @@ function Preview() {
 	};
 	this.setContent = function(simpleCode) {
 		_simpleCode = simpleCode;
+		if(simpleCode.length === 0) return;
+		_element.className = "show";
 		draw();
 	};
 	this.setStep = function(step) {

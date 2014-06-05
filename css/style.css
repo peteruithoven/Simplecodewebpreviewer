@@ -1,14 +1,16 @@
 #dropzone {
-	border: 2px dashed #BBB;
-	border-radius: 5px;
 	padding: 25px;
 	text-align: center;
-	color: #BBB;
 	position: absolute;
 	top: 10px;
 	left: 10px;
 	right: 10px;
 	bottom: 10px;
+	border: 2px solid #fff;
+}
+#dropzone.show {
+	border: 2px dashed #BBB;
+	border-radius: 5px;
 }
 #preview {
 	position: absolute;
@@ -16,6 +18,10 @@
 	left: 10px;
 	right: 10px;
 	bottom: 10px;
+	display: none;
+}
+#preview.show {
+	display: block;
 }
 #preview svg {
 	border: 1px solid #ccc;
@@ -25,4 +31,23 @@
 }
 #preview .cut {
 	stroke: #f45e5e;
+}
+#help {
+	width: 30em;
+	text-align: left;
+	border: 1px solid #bbb;
+	padding: 0 1em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -9em 0 0 -16em;
+	box-shadow: 0px 2px 6px 0px rgba(16, 16, 16, 0.65);
+	border-radius: 5px;
+	background: #fff;
+}
+#help h3{
+	margin: 0.9em 0 0 0;
+}
+.hide {
+	display: none;
 }

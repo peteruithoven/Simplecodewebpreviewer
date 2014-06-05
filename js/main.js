@@ -2,6 +2,7 @@ var simpleCode = new SimpleCode();
 var currentLine = 0;
 var preview = new Preview();
 var dropZone = new DropZone();
+var help = document.getElementById('help')
 
 preview.flipY = true;
 preview.bedWidth = 520;
@@ -12,6 +13,7 @@ preview.setContent(simpleCode);
 
 dropZone.init(document.getElementById('dropzone'));
 dropZone.onload = function(content) {
+	help.className = "hide";
 	console.log("  simplecode: ",content);
 	simpleCode.parse(content);
 	preview.setContent(simpleCode);

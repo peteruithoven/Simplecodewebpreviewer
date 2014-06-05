@@ -10,8 +10,28 @@
 		<link rel="stylesheet" href="css/style.css" />
 	</head>
 	<body>
-		<div id="dropzone">
+		<div id="dropzone" class="show">
 			<div id="preview"></div>
+			<div id="help">
+				<h3>Drop your simplecode file here</h3>
+				<p>
+					You can retrieve this file from VisiCut by:
+					<ol>
+						<li>Going to <em>Edit</em> > <em>Settings</em> > <em>Manage Lasercutters...</em> > edit your lasercutter</li>
+						<li>Fill in a name behind <em>Debug output file</em>.</li>
+						<li>Press Execute</li>
+						<li>Find your file:
+							<ul>
+								<li>OS X: Right click on the VisiCut Application, 
+									<br />click <em>Show Package Contents</em>. 
+									<br />Go to: <em>Contents</em> > <em>Resources</em> > <em>Java</em></li>
+								<li>Windows: Usually <em>C</em> > <em>Program files</em> > <em>VisiCut</em></li>
+								<li>Linux: ... (Permission issue...)</li>
+							</ul>
+						</li>
+					</ol>
+				</p>
+				</div>
 		</div>
 		<script type="text/javascript" src="js/libs/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="js/libs/svg.min.js"></script>
