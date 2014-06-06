@@ -2,6 +2,7 @@ var simpleCode = new SimpleCode();
 var currentLine = 0;
 var preview = new Preview();
 var dropZone = new DropZone();
+var form = new Form();
 var help = document.getElementById('help')
 
 preview.flipY = true;
@@ -10,7 +11,10 @@ preview.bedHeight = 330;
 preview.init(document.getElementById('preview'));
 preview.setContent(simpleCode);
 //preview.setContent("");
-
+form.init(document.getElementsByTagName("form")[0]);
+form.onChange = function() {
+	preview.resize(form.bedWidth,form.bedHeight);
+}
 dropZone.init(document.getElementById('dropzone'));
 dropZone.onload = function(content) {
 	help.className = "hide";

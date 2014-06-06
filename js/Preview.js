@@ -37,8 +37,17 @@ function Preview() {
 			step.attr('opacity',((i > _currentStep)? 0.1 : 1));
 		}
 	}
+	this.resize = function(width,height) {
+		_self.bedWidth = width;
+		_self.bedHeight = height;
+		_svg.node.setAttribute("width",width);
+		_svg.node.setAttribute("height",height);
+		draw();
+	}
 	
 	function draw() {
+		_steps = [];
+		_svg.clear();
 		var commands = _simpleCode.commands;
 		var px = 0;
 		var py = (_self.flipY)? 0 : _self.bedHeight;
