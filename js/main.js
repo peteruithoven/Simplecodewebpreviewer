@@ -4,6 +4,7 @@ var preview = new Preview();
 var dropZone = new DropZone();
 var form = new Form();
 var help = document.getElementById('help')
+var description = new Description();
 
 preview.flipY = true;
 preview.bedWidth = 520;
@@ -21,7 +22,9 @@ dropZone.onload = function(content) {
 	console.log("  simplecode: ",content);
 	simpleCode.parse(content);
 	preview.setContent(simpleCode);
+	description.setContent(simpleCode);
 };
+description.init(document.getElementById('description'));
 
 document.onmousemove = function(event) {
 	var mouseX = (event.pageX !== undefined)? event.pageX : event.clientX;
@@ -55,4 +58,5 @@ function setCurrentLine(line) {
 	currentLine = line;
 	//console.log("  currentLine: ",currentLine);
 	preview.setStep(currentLine);
+	description.setLine(currentLine);
 }
