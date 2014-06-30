@@ -36,6 +36,9 @@
 #preview .cut {
 	stroke: #f45e5e;
 }
+#preview .fade {
+	opacity: 0.1;
+}
 #help {
 	width: 30em;
 	text-align: left;

@@ -34,7 +34,16 @@ function Preview() {
 		for(var i=0;i<_steps.length;i++) {
 			var step = _steps[i];
 			if(step === undefined) continue;
-			step.attr('opacity',((i > _currentStep)? 0.1 : 1));
+			step.setAttribute('opacity',((i > _currentStep)? 0.1 : 1));
+			/*var classes = step.getAttribute('class');
+			var fade = i > _currentStep;
+			var faded = classes.indexOf("fade") !== -1;
+			if(i > _currentStep) {
+				if(!faded) classes += " fade";
+			} else {
+				if(faded) classes = classes.replace(" fade","");
+			}
+			step.setAttribute('class',classes);*/
 		}
 	}
 	this.resize = function(width,height) {
@@ -62,7 +71,8 @@ function Preview() {
 					if(_self.flipY) y = _self.bedHeight-y;
 
 					var lineClass = (cmd.command == SimpleCode.COMMAND.MOVE)? "move" : "cut";
-					step = _svg.line(px,py,x,y).attr('class', lineClass);
+					var line = _svg.line(px,py,x,y).attr('class', lineClass);
+					step = line.node;
 					
 					px = x;
 					py = y;
